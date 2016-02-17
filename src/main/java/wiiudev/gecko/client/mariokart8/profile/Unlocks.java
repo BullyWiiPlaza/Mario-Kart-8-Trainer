@@ -3,7 +3,6 @@ package wiiudev.gecko.client.mariokart8.profile;
 import wiiudev.gecko.client.connector.MemoryWriter;
 
 import java.io.IOException;
-import java.util.logging.Logger;
 
 /**
  * A collection of methods that unlock certain things in Mario Kart 8
@@ -13,8 +12,6 @@ public class Unlocks
 	public static int unlockTracksAddress = PlayStatistics.totalCoinsAddress + 0x540;
 	private static int value = 0x03030303;
 
-	private static final Logger LOGGER = Logger.getLogger(Unlocks.class.getName());
-
 	/**
 	 * Unlocks all racing tracks
 	 *
@@ -22,7 +19,6 @@ public class Unlocks
 	 */
 	public static void unlockAllTracks() throws IOException
 	{
-		LOGGER.info("Unlocking all tracks...");
 		new MemoryWriter().serialWrite(unlockTracksAddress, value, 1);
 	}
 
@@ -33,7 +29,6 @@ public class Unlocks
 	 */
 	public static void unlockAllCharacters() throws IOException
 	{
-		LOGGER.info("Unlocking all characters...");
 		new MemoryWriter().serialWrite(unlockTracksAddress + 0x28, value, 7);
 	}
 
@@ -44,7 +39,6 @@ public class Unlocks
 	 */
 	public static void unlockAllVehicles() throws IOException
 	{
-		LOGGER.info("Unlocking all vehicles...");
 		new MemoryWriter().serialWrite(unlockTracksAddress + 0x68, value, 6);
 	}
 
@@ -55,7 +49,6 @@ public class Unlocks
 	 */
 	public static void unlockAllTires() throws IOException
 	{
-		LOGGER.info("Unlocking all tires...");
 		new MemoryWriter().serialWrite(unlockTracksAddress + 0xA8, value, 4);
 	}
 
@@ -66,7 +59,6 @@ public class Unlocks
 	 */
 	public static void unlockAllGliders() throws IOException
 	{
-		LOGGER.info("Unlocking all gliders...");
 		new MemoryWriter().serialWrite(unlockTracksAddress + 0xE8, value, 2);
 	}
 
@@ -77,8 +69,12 @@ public class Unlocks
 	 */
 	public static void unlockAllStickers() throws IOException
 	{
-		LOGGER.info("Unlocking all stickers...");
 		new MemoryWriter().serialWrite(unlockTracksAddress + 0x130, value, 22);
+	}
+
+	public static void allCups3Stars() throws IOException
+	{
+		new MemoryWriter().serialWrite(PlayStatistics.totalCoinsAddress - 0x101C, value, 33);
 	}
 
 	/**
@@ -88,6 +84,7 @@ public class Unlocks
 	 */
 	public static void unlockAll() throws IOException
 	{
+		allCups3Stars();
 		unlockAllTracks();
 		unlockAllCharacters();
 		unlockAllVehicles();

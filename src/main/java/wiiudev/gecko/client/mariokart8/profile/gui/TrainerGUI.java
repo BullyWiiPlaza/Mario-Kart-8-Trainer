@@ -128,6 +128,7 @@ public class TrainerGUI extends JFrame
 		unlocksList.add("All Tires");
 		unlocksList.add("All Gliders");
 		unlocksList.add("All Stickers");
+		unlocksList.add("All Cups 3 Stars");
 		unlocksList.add("Everything");
 	}
 
@@ -135,7 +136,8 @@ public class TrainerGUI extends JFrame
 	{
 		injectButton.setEnabled(false);
 
-		injectButton.addActionListener(e -> {
+		injectButton.addActionListener(e ->
+		{
 			try
 			{
 				int selectedIndex = modificationChooserComboBox.getSelectedIndex();
@@ -211,6 +213,9 @@ public class TrainerGUI extends JFrame
 					{
 						Unlocks.unlockAllStickers();
 					} else if (modificationChooserComboBox.getSelectedIndex() == 6)
+					{
+						Unlocks.allCups3Stars();
+					} else if (modificationChooserComboBox.getSelectedIndex() == 7)
 					{
 						Unlocks.unlockAll();
 					}
