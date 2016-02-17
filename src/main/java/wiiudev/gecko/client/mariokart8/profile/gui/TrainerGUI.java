@@ -129,6 +129,7 @@ public class TrainerGUI extends JFrame
 		unlocksList.add("All Gliders");
 		unlocksList.add("All Stickers");
 		unlocksList.add("All Cups 3 Stars");
+		unlocksList.add("Amiibo Suits");
 		unlocksList.add("Everything");
 	}
 
@@ -216,6 +217,9 @@ public class TrainerGUI extends JFrame
 					{
 						Unlocks.allCups3Stars();
 					} else if (modificationChooserComboBox.getSelectedIndex() == 7)
+					{
+						Unlocks.allAmiiboSuits();
+					} else if (modificationChooserComboBox.getSelectedIndex() == 8)
 					{
 						Unlocks.unlockAll();
 					}

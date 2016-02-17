@@ -77,6 +77,11 @@ public class Unlocks
 		new MemoryWriter().serialWrite(PlayStatistics.totalCoinsAddress - 0x101C, value, 33);
 	}
 
+	public static void allAmiiboSuits() throws IOException
+	{
+		new MemoryWriter().writeInt(PlayStatistics.totalCoinsAddress + 0x5100, 0x0071FEFF);
+	}
+
 	/**
 	 * Unlocks all tracks, characters, vehicles, tires, gliders and stickers
 	 *
@@ -91,5 +96,6 @@ public class Unlocks
 		unlockAllTires();
 		unlockAllGliders();
 		unlockAllStickers();
+		allAmiiboSuits();
 	}
 }

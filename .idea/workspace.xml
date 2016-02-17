@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="8e5b6d39-b89f-44b9-8fd0-e0882ceb0a3a" name="Default" comment="">
+    <list default="true" id="8e5b6d39-b89f-44b9-8fd0-e0882ceb0a3a" name="Default" comment="Implement unlock Amiibo option (thanks 3dsiziritai)">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/profiles_settings.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/Mario Kart 8 Trainer.jar" afterPath="$PROJECT_DIR$/out/Mario Kart 8 Trainer.jar" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/TrainerGUILauncher.class" afterPath="$PROJECT_DIR$/target/classes/TrainerGUILauncher.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/wiiudev/gecko/client/mariokart8/profile/Unlocks.class" afterPath="$PROJECT_DIR$/target/classes/wiiudev/gecko/client/mariokart8/profile/Unlocks.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/wiiudev/gecko/client/mariokart8/profile/gui/TrainerGUI$2.class" afterPath="$PROJECT_DIR$/target/classes/wiiudev/gecko/client/mariokart8/profile/gui/TrainerGUI$2.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/wiiudev/gecko/client/mariokart8/profile/gui/TrainerGUI.class" afterPath="$PROJECT_DIR$/target/classes/wiiudev/gecko/client/mariokart8/profile/gui/TrainerGUI.class" />
@@ -11,6 +12,8 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/TrainerGUILauncher.java" afterPath="$PROJECT_DIR$/src/main/java/TrainerGUILauncher.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/wiiudev/gecko/client/mariokart8/profile/Unlocks.java" afterPath="$PROJECT_DIR$/src/main/java/wiiudev/gecko/client/mariokart8/profile/Unlocks.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/wiiudev/gecko/client/mariokart8/profile/gui/TrainerGUI.java" afterPath="$PROJECT_DIR$/src/main/java/wiiudev/gecko/client/mariokart8/profile/gui/TrainerGUI.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/About.html" afterPath="$PROJECT_DIR$/src/main/resources/About.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/About.html" afterPath="$PROJECT_DIR$/target/classes/About.html" />
     </list>
     <ignored path="Mario Kart 8 Trainer.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -46,11 +49,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="TrainerGUILauncher.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="TrainerGUILauncher.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/TrainerGUILauncher.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="12" column="0" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
+              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -62,10 +65,20 @@
         <entry file="file://$PROJECT_DIR$/src/main/java/wiiudev/gecko/client/mariokart8/profile/gui/TrainerGUI.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="293" column="16" selection-start-line="293" selection-start-column="16" selection-end-line="293" selection-end-column="16" />
+              <caret line="151" column="50" selection-start-line="151" selection-start-column="50" selection-end-line="151" selection-end-column="50" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="About.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/resources/About.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-10.419354">
+              <caret line="25" column="7" selection-start-line="25" selection-start-column="7" selection-end-line="25" selection-end-column="7" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -89,11 +102,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Unlocks.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Unlocks.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/wiiudev/gecko/client/mariokart8/profile/Unlocks.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-3.345679">
-              <caret line="4" column="27" selection-start-line="4" selection-start-column="27" selection-end-line="4" selection-end-column="27" />
+            <state vertical-scroll-proportion="0.0">
+              <caret line="83" column="0" selection-start-line="83" selection-start-column="0" selection-end-line="83" selection-end-column="0" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -141,9 +154,10 @@
         <option value="$PROJECT_DIR$/src/main/java/scanner/NetworkUtils.java" />
         <option value="$PROJECT_DIR$/src/main/java/TrainerGUI.java" />
         <option value="$PROJECT_DIR$/src/main/java/wiiudev/gecko/client/mariokart8/profile/gui/TrainerGUILauncher.java" />
-        <option value="$PROJECT_DIR$/src/main/java/TrainerGUILauncher.java" />
-        <option value="$PROJECT_DIR$/src/main/java/wiiudev/gecko/client/mariokart8/profile/gui/TrainerGUI.java" />
         <option value="$PROJECT_DIR$/src/main/java/wiiudev/gecko/client/mariokart8/profile/Unlocks.java" />
+        <option value="$PROJECT_DIR$/src/main/java/wiiudev/gecko/client/mariokart8/profile/gui/TrainerGUI.java" />
+        <option value="$PROJECT_DIR$/src/main/resources/About.html" />
+        <option value="$PROJECT_DIR$/src/main/java/TrainerGUILauncher.java" />
       </list>
     </option>
   </component>
@@ -907,16 +921,23 @@
       <updated>1455713848244</updated>
       <workItem from="1455713849698" duration="2792000" />
       <workItem from="1455716661885" duration="114000" />
-      <workItem from="1455717081064" duration="1055000" />
+      <workItem from="1455717081064" duration="1927000" />
     </task>
+    <task id="LOCAL-00001" summary="Implement all cups 3 stars option (thanks 3dsiziritai)">
+      <created>1455718179412</created>
+      <option name="number" value="00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1455718179412</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="3961000" />
+    <option name="totallyTimeSpent" value="4833000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1616" height="876" extended-state="6" />
-    <editor active="false" />
+    <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -957,7 +978,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Initial commit" />
-    <option name="LAST_COMMIT_MESSAGE" value="Initial commit" />
+    <MESSAGE value="Implement all cups 3 stars option (thanks 3dsiziritai)" />
+    <option name="LAST_COMMIT_MESSAGE" value="Implement all cups 3 stars option (thanks 3dsiziritai)" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -1038,19 +1060,15 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="91" column="36" selection-start-line="91" selection-start-column="36" selection-end-line="91" selection-end-column="36" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/Icon.png">
       <provider selected="true" editor-type-id="images">
         <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/About.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="1.2087913">
-          <caret line="25" column="7" selection-start-line="25" selection-start-column="7" selection-end-line="25" selection-end-column="7" />
-        </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/wiiudev/gecko/client/connector/scanner/NetworkUtils.java">
@@ -1086,16 +1104,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/TrainerGUILauncher.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="12" column="0" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/wiiudev/gecko/client/mariokart8/profile/gui/TrainerGUI.form">
       <provider selected="true" editor-type-id="ui-designer">
         <state />
@@ -1105,16 +1113,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="57" column="21" selection-start-line="57" selection-start-column="21" selection-end-line="57" selection-end-column="21" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/wiiudev/gecko/client/mariokart8/profile/gui/TrainerGUI.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="293" column="16" selection-start-line="293" selection-start-column="16" selection-end-line="293" selection-end-column="16" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -1133,8 +1131,36 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/wiiudev/gecko/client/mariokart8/profile/Unlocks.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-3.345679">
-          <caret line="4" column="27" selection-start-line="4" selection-start-column="27" selection-end-line="4" selection-end-column="27" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="83" column="0" selection-start-line="83" selection-start-column="0" selection-end-line="83" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/wiiudev/gecko/client/mariokart8/profile/gui/TrainerGUI.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="151" column="50" selection-start-line="151" selection-start-column="50" selection-end-line="151" selection-end-column="50" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/About.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-10.419354">
+          <caret line="25" column="7" selection-start-line="25" selection-start-column="7" selection-end-line="25" selection-end-column="7" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/TrainerGUILauncher.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
