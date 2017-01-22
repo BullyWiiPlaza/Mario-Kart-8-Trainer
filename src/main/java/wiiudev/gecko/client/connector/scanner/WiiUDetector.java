@@ -4,6 +4,7 @@ import wiiudev.gecko.client.connector.Connector;
 import wiiudev.gecko.client.connector.MemoryReader;
 
 import java.io.IOException;
+import java.util.List;
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.ExecutorCompletionService;
 import java.util.concurrent.ExecutorService;
@@ -18,16 +19,14 @@ public class WiiUDetector
 	 * Gets all addresses from the computer's sub network and checks them to find the Wii U console
 	 *
 	 * @return The Wii U console's local IP address
-	 * @throws IOException
-	 * @throws InterruptedException
-	 * @throws ExecutionException
 	 */
-	public static String getNintendoWiiUInternetProtocolAddress() throws IOException, InterruptedException,
+	public static String getNintendoWiiUIPAddress() throws IOException, InterruptedException,
 			ExecutionException
 	{
 		String localIPAddress = NetworkUtils.getLocalInternetProtocolAddress();
 		int networkMaskLength = NetworkUtils.getLocalNetworkMaskLength();
-		String[] subNetworkAddresses = NetworkUtils.getAllSubNetworkAddresses(localIPAddress, networkMaskLength);
+		List<String> subNetworkAddresses = NetworkUtils.getAllSubNetworkAddresses(localIPAddress, networkMaskLength);
+		subNetworkAddresses.remove(localIPAddress); // Remove the local IP address
 
 		return getWiiUIPAddress(subNetworkAddresses);
 	}
@@ -35,7 +34,7 @@ public class WiiUDetector
 	/**
 	 * Pings all available IP addresses in the current sub network in order to find the Wii U console
 	 */
-	private static String getWiiUIPAddress(String[] subNetworkAddresses) throws InterruptedException, ExecutionException
+	private static String getWiiUIPAddress(List<String> subNetworkAddresses) throws InterruptedException, ExecutionException
 	{
 		int subNetStartingIndex = 1;
 		int subNetUpperBound = 256;
@@ -52,11 +51,20 @@ public class WiiUDetector
 					if (PingUtils.isReachable(subNetworkAddress))
 					{
 						Connector.getInstance().connect(subNetworkAddress);
-						assert new MemoryReader().readInt(0x10000000) == 0x1000 : "Read value didn't match";
+						MemoryReader memoryReader = new MemoryReader();
+						int readValue = memoryReader.readInt(0x10000000);
+						int expected = 0x3E8;
+
+						if (readValue != expected)
+						{
+							throw new IllegalStateException("Read value was " + readValue + " but expected " + expected + "!");
+						}
+
+						pool.shutdownNow();
 
 						return subNetworkAddress;
 					}
-				} catch (IOException ignored)
+				} catch (Exception ignored)
 				{
 
 				}

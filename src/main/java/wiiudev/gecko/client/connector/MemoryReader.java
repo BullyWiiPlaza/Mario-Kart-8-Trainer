@@ -23,7 +23,6 @@ public class MemoryReader extends SocketCommunication
 	 *
 	 * @param address The address to read from
 	 * @return The read byte
-	 * @throws IOException
 	 */
 	public byte read(int address) throws IOException
 	{
@@ -37,7 +36,6 @@ public class MemoryReader extends SocketCommunication
 	 *
 	 * @param address The address to read from
 	 * @return The read short
-	 * @throws IOException
 	 */
 	public short readShort(int address) throws IOException
 	{
@@ -51,7 +49,6 @@ public class MemoryReader extends SocketCommunication
 	 *
 	 * @param address The address to read from
 	 * @return The read value
-	 * @throws IOException
 	 */
 	public int readInt(int address) throws IOException
 	{
@@ -65,7 +62,6 @@ public class MemoryReader extends SocketCommunication
 	 *
 	 * @param address The address to read from
 	 * @return The read float
-	 * @throws IOException
 	 */
 	public float readFloat(int address) throws IOException
 	{
@@ -79,7 +75,6 @@ public class MemoryReader extends SocketCommunication
 	 *
 	 * @param address The address the String starts at
 	 * @return The retrieved String
-	 * @throws IOException
 	 */
 	public String readString(int address) throws IOException
 	{
@@ -112,7 +107,6 @@ public class MemoryReader extends SocketCommunication
 	 *
 	 * @param address The address to start reading from
 	 * @return The read boolean
-	 * @throws IOException
 	 */
 	public boolean readBoolean(int address) throws IOException
 	{
@@ -127,7 +121,6 @@ public class MemoryReader extends SocketCommunication
 	 * @param address The address to start dumping memory at
 	 * @param bytes   The amount of bytes to dump
 	 * @param file    The file to store the data to
-	 * @throws IOException
 	 */
 	public void dump(int address, int bytes, File file) throws IOException
 	{
@@ -185,7 +178,6 @@ public class MemoryReader extends SocketCommunication
 	 *
 	 * @param memoryPointer The pointer to follow
 	 * @return The destination address the <code>memoryPointer</code> is pointing to
-	 * @throws IOException
 	 */
 	public int getDestinationAddress(MemoryPointer memoryPointer) throws IOException
 	{
@@ -213,7 +205,6 @@ public class MemoryReader extends SocketCommunication
 	 * @param address The address to start reading memory from
 	 * @param length  The amount of bytes to read
 	 * @return A byte array containing all read bytes
-	 * @throws IOException
 	 */
 	public byte[] readBytes(int address, int length) throws IOException
 	{

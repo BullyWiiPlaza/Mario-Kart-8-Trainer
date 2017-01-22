@@ -3,13 +3,15 @@ package wiiudev.gecko.client.connector.scanner;
 import org.apache.commons.net.util.SubnetUtils;
 
 import java.net.*;
+import java.util.Arrays;
 import java.util.Enumeration;
+import java.util.LinkedList;
+import java.util.List;
 
 public class NetworkUtils
 {
 	/**
 	 * @return The local Internet protocol address of this machine
-	 * @throws SocketException
 	 */
 	public static String getLocalInternetProtocolAddress() throws SocketException
 	{
@@ -31,8 +33,6 @@ public class NetworkUtils
 
 	/**
 	 * @return The network mask length is bytes the computer is currently in
-	 * @throws UnknownHostException
-	 * @throws SocketException
 	 */
 	public static int getLocalNetworkMaskLength() throws UnknownHostException, SocketException
 	{
@@ -58,9 +58,10 @@ public class NetworkUtils
 	 * @param networkMaskLength The length in bytes of the sub network mask
 	 * @return A list of IP addresses contained in the sub network
 	 */
-	public static String[] getAllSubNetworkAddresses(String subNetworkAddress, int networkMaskLength)
+	public static List<String> getAllSubNetworkAddresses(String subNetworkAddress, int networkMaskLength)
 	{
 		SubnetUtils subnetUtils = new SubnetUtils(subNetworkAddress + "/" + networkMaskLength);
-		return subnetUtils.getInfo().getAllAddresses();
+		SubnetUtils.SubnetInfo subnetInfo = subnetUtils.getInfo();
+		return new LinkedList<>(Arrays.asList(subnetInfo.getAllAddresses()));
 	}
 }

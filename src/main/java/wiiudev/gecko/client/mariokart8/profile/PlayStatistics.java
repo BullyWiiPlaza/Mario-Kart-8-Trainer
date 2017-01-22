@@ -17,7 +17,6 @@ public class PlayStatistics
 	 * Sets the total amount of coins collected
 	 *
 	 * @param value The amount to set
-	 * @throws IOException
 	 */
 	public static void setCoins(int value) throws IOException
 	{
@@ -28,7 +27,6 @@ public class PlayStatistics
 	 * Sets the total amount of jump boosts performed
 	 *
 	 * @param value The amount to set
-	 * @throws IOException
 	 */
 	public static void setJumpBoosts(int value) throws IOException
 	{
@@ -39,7 +37,6 @@ public class PlayStatistics
 	 * Sets the total amount of drifts performed
 	 *
 	 * @param value The amount to set
-	 * @throws IOException
 	 */
 	public static void setDrifts(int value) throws IOException
 	{
@@ -50,7 +47,6 @@ public class PlayStatistics
 	 * Sets the total amount of mini turbos performed
 	 *
 	 * @param value The amount to set
-	 * @throws IOException
 	 */
 	public static void setMiniTurbos(int value) throws IOException
 	{
@@ -61,7 +57,6 @@ public class PlayStatistics
 	 * Sets the amount of super mini turbos performed
 	 *
 	 * @param value The amount to set
-	 * @throws IOException
 	 */
 	public static void setSuperMiniTurbos(int value) throws IOException
 	{
@@ -72,7 +67,6 @@ public class PlayStatistics
 	 * Sets the amount of times you popped someone else's balloon
 	 *
 	 * @param value The amount to set
-	 * @throws IOException
 	 */
 	public static void setBalloonsPopped(int value) throws IOException
 	{
@@ -83,7 +77,6 @@ public class PlayStatistics
 	 * Sets the amount of times your own balloons have been popped
 	 *
 	 * @param value The amount to set
-	 * @throws IOException
 	 */
 	public static void setOwnBalloonsPopped(int value) throws IOException
 	{

@@ -19,7 +19,6 @@ public class MemoryWriter extends SocketCommunication
 	 * @param address The address to write to
 	 * @param value   The value to write
 	 * @param command The {@link ServerCommands} to execute
-	 * @throws IOException
 	 */
 	private void sendWriteCommand(int address, int value, int command) throws IOException
 	{
@@ -37,7 +36,6 @@ public class MemoryWriter extends SocketCommunication
 	 *
 	 * @param address The address to write to
 	 * @param value   The value to write
-	 * @throws IOException
 	 */
 	public void write(int address, byte value) throws IOException
 	{
@@ -49,7 +47,6 @@ public class MemoryWriter extends SocketCommunication
 	 *
 	 * @param address The address to write to
 	 * @param value   The value to write
-	 * @throws IOException
 	 */
 	public void writeShort(int address, short value) throws IOException
 	{
@@ -61,7 +58,6 @@ public class MemoryWriter extends SocketCommunication
 	 *
 	 * @param address The address to write to
 	 * @param value   The value to write
-	 * @throws IOException
 	 */
 	public void writeInt(int address, int value) throws IOException
 	{
@@ -73,7 +69,6 @@ public class MemoryWriter extends SocketCommunication
 	 *
 	 * @param address The address to write to
 	 * @param value   The value to write
-	 * @throws IOException
 	 */
 	public void writeBoolean(int address, boolean value) throws IOException
 	{
@@ -97,7 +92,6 @@ public class MemoryWriter extends SocketCommunication
 	 *
 	 * @param address The address to write to
 	 * @param value   The value to write
-	 * @throws IOException
 	 */
 	public void writeString(int address, String value) throws IOException
 	{
@@ -116,7 +110,6 @@ public class MemoryWriter extends SocketCommunication
 	 * @param address       The address to write to
 	 * @param value         The value to write
 	 * @param maximumLength The value's maximum allowed amount of characters
-	 * @throws IOException
 	 */
 	public void writeString(int address, String value, int maximumLength) throws IOException
 	{
@@ -135,7 +128,6 @@ public class MemoryWriter extends SocketCommunication
 	 *
 	 * @param address The address to write to
 	 * @param file    The file to write
-	 * @throws IOException
 	 */
 	public void upload(int address, File file) throws IOException
 	{
@@ -149,7 +141,6 @@ public class MemoryWriter extends SocketCommunication
 	 *
 	 * @param address The address to write to
 	 * @param bytes   The value to write
-	 * @throws IOException
 	 */
 	public void writeBytes(int address, byte[] bytes) throws IOException
 	{
@@ -191,7 +182,6 @@ public class MemoryWriter extends SocketCommunication
 	 * @param startingAddress       The address to start poking memory at
 	 * @param value                 The value to writeInt
 	 * @param additionalWritesCount The amount of additional pokes to perform
-	 * @throws IOException
 	 */
 	public void serialWrite(int startingAddress, int value, int additionalWritesCount) throws IOException
 	{

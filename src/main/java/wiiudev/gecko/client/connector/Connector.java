@@ -49,7 +49,6 @@ public class Connector
 	 * Connects to a Nintendo Wii U console via its local IP address and port {@value #PORT}
 	 *
 	 * @param ipAddress The local IP address of the Nintendo Wii U console to connect to
-	 * @throws IOException
 	 */
 	public void connect(String ipAddress) throws IOException
 	{

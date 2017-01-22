@@ -14,8 +14,6 @@ public class Unlocks
 
 	/**
 	 * Unlocks all racing tracks
-	 *
-	 * @throws IOException
 	 */
 	public static void unlockAllTracks() throws IOException
 	{
@@ -24,8 +22,6 @@ public class Unlocks
 
 	/**
 	 * Unlocks all playable characters
-	 *
-	 * @throws IOException
 	 */
 	public static void unlockAllCharacters() throws IOException
 	{
@@ -34,8 +30,6 @@ public class Unlocks
 
 	/**
 	 * Unlocks all karts and bikes
-	 *
-	 * @throws IOException
 	 */
 	public static void unlockAllVehicles() throws IOException
 	{
@@ -44,8 +38,6 @@ public class Unlocks
 
 	/**
 	 * Unlocks all vehicle tires
-	 *
-	 * @throws IOException
 	 */
 	public static void unlockAllTires() throws IOException
 	{
@@ -54,8 +46,6 @@ public class Unlocks
 
 	/**
 	 * Unlocks all glider parts
-	 *
-	 * @throws IOException
 	 */
 	public static void unlockAllGliders() throws IOException
 	{
@@ -64,8 +54,6 @@ public class Unlocks
 
 	/**
 	 * Unlocks all character stickers
-	 *
-	 * @throws IOException
 	 */
 	public static void unlockAllStickers() throws IOException
 	{
@@ -84,8 +72,6 @@ public class Unlocks
 
 	/**
 	 * Unlocks all tracks, characters, vehicles, tires, gliders and stickers
-	 *
-	 * @throws IOException
 	 */
 	public static void unlockAll() throws IOException
 	{

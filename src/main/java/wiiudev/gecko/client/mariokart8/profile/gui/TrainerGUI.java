@@ -247,8 +247,7 @@ public class TrainerGUI extends JFrame
 	{
 		autoDetectCheckBox.addActionListener(actionEvent ->
 		{
-			boolean autoDetect = autoDetectCheckBox
-					.isSelected();
+			boolean autoDetect = autoDetectCheckBox.isSelected();
 
 			wiiUIPAddressField.setEnabled(!autoDetect);
 
@@ -283,7 +282,7 @@ public class TrainerGUI extends JFrame
 
 					if (autoDetectCheckBox.isSelected())
 					{
-						ipAddress = WiiUDetector.getNintendoWiiUInternetProtocolAddress();
+						ipAddress = WiiUDetector.getNintendoWiiUIPAddress();
 					} else
 					{
 						ipAddress = wiiUIPAddressField.getText();
@@ -376,7 +375,7 @@ public class TrainerGUI extends JFrame
 	{
 		setContentPane(rootPanel);
 		setTitle("Mario Kart 8 Trainer");
-		setSize(300, 300);
+		setSize(300, 260);
 		setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
 		setLocationRelativeTo(null);
 		setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/Icon.png")));
