@@ -11,7 +11,7 @@ import static wiiudev.gecko.client.mariokart8.profile.Unlocks.unlockTracksAddres
  */
 public class PlayStatistics
 {
-	public static int totalCoinsAddress = 0x2F748128;
+	static int totalCoinsAddress = 0x2F748128;
 
 	/**
 	 * Sets the total amount of coins collected

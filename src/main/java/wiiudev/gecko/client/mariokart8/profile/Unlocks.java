@@ -4,13 +4,16 @@ import wiiudev.gecko.client.connector.MemoryWriter;
 
 import java.io.IOException;
 
+import static wiiudev.gecko.client.mariokart8.profile.PlayStatistics.totalCoinsAddress;
+
 /**
  * A collection of methods that unlock certain things in Mario Kart 8
  */
 public class Unlocks
 {
-	public static int unlockTracksAddress = PlayStatistics.totalCoinsAddress + 0x540;
-	private static int value = 0x03030303;
+	static int unlockTracksAddress = totalCoinsAddress + 0x540;
+
+	private static final int value = 0x03030303;
 
 	/**
 	 * Unlocks all racing tracks
@@ -62,12 +65,12 @@ public class Unlocks
 
 	public static void allCups3Stars() throws IOException
 	{
-		new MemoryWriter().serialWrite(PlayStatistics.totalCoinsAddress - 0x101C, value, 33);
+		new MemoryWriter().serialWrite(totalCoinsAddress - 0x101C, value, 33);
 	}
 
 	public static void allAmiiboSuits() throws IOException
 	{
-		new MemoryWriter().writeInt(PlayStatistics.totalCoinsAddress + 0x5100, 0x0071FEFF);
+		new MemoryWriter().writeInt(totalCoinsAddress + 0x5100, 0x0071FEFF);
 	}
 
 	/**

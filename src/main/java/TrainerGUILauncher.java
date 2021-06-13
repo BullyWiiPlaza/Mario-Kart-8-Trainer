@@ -1,24 +1,20 @@
 import wiiudev.gecko.client.mariokart8.profile.gui.TrainerGUI;
 
-import javax.swing.*;
-import java.io.IOException;
+import static javax.swing.SwingUtilities.invokeLater;
+import static javax.swing.UIManager.getSystemLookAndFeelClassName;
+import static javax.swing.UIManager.setLookAndFeel;
 
 public class TrainerGUILauncher
 {
+	// TODO: Auto-detect currently loaded profile
 	public static void main(String[] arguments) throws Exception
 	{
-		UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
+		setLookAndFeel(getSystemLookAndFeelClassName());
 
-		SwingUtilities.invokeLater(() ->
+		invokeLater(() ->
 		{
-			try
-			{
-				TrainerGUI trainerGUI = new TrainerGUI();
-				trainerGUI.setVisible(true);
-			} catch (IOException exception)
-			{
-				exception.printStackTrace();
-			}
+			TrainerGUI trainerGUI = new TrainerGUI();
+			trainerGUI.setVisible(true);
 		});
 	}
 }

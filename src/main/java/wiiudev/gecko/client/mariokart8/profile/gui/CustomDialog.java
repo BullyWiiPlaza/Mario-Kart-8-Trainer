@@ -1,16 +1,14 @@
 package wiiudev.gecko.client.mariokart8.profile.gui;
 
+import javax.swing.*;
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.swing.JComponent;
-import javax.swing.JLabel;
-import javax.swing.JOptionPane;
-import javax.swing.JRootPane;
+import static javax.swing.JOptionPane.*;
 
 public class CustomDialog
 {
-	private List<JComponent> components;
+	private final List<JComponent> components;
 
 	private String title;
 	private int messageType;
@@ -18,28 +16,28 @@ public class CustomDialog
 	private String[] options;
 	private int optionIndex;
 
-	public CustomDialog()
+	CustomDialog()
 	{
 		components = new ArrayList<>();
 
 		setTitle("Custom dialog");
-		setMessageType(JOptionPane.PLAIN_MESSAGE);
-		setRootPane(null);
+		setMessageType();
+		setRootPane();
 		setOptions(new String[] { "OK", "Cancel" });
-		setOptionSelection(0);
+		setOptionSelection();
 	}
 
-	public void setTitle(String title)
+	void setTitle(String title)
 	{
 		this.title = title;
 	}
 
-	public void setMessageType(int messageType)
+	private void setMessageType()
 	{
-		this.messageType = messageType;
+		this.messageType = PLAIN_MESSAGE;
 	}
 
-	public void addComponent(JComponent component)
+	void addComponent(JComponent component)
 	{
 		components.add(component);
 	}
@@ -51,24 +49,24 @@ public class CustomDialog
 		components.add(label);
 	}
 
-	public void setRootPane(JRootPane rootPane)
+	private void setRootPane()
 	{
-		this.rootPane = rootPane;
+		this.rootPane = null;
 	}
 
-	public void setOptions(String[] options)
+	private void setOptions(String[] options)
 	{
 		this.options = options;
 	}
 
-	public void setOptionSelection(int optionIndex)
+	private void setOptionSelection()
 	{
-		this.optionIndex = optionIndex;
+		this.optionIndex = 0;
 	}
 
-	public int show()
+	int show()
 	{
-		int optionType = JOptionPane.OK_CANCEL_OPTION;
+		int optionType = OK_CANCEL_OPTION;
 		Object optionSelection = null;
 
 		if(options.length != 0)
@@ -76,15 +74,8 @@ public class CustomDialog
 			optionSelection = options[optionIndex];
 		}
 
-		int selection = JOptionPane.showOptionDialog(rootPane,
+		return showOptionDialog(rootPane,
 				components.toArray(), title, optionType, messageType, null,
 				options, optionSelection);
-
-		return selection;
-	}
-
-	public static String getLineBreak()
-	{
-		return "<br>";
 	}
 }

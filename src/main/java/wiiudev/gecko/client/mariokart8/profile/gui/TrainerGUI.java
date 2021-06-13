@@ -1,11 +1,8 @@
 package wiiudev.gecko.client.mariokart8.profile.gui;
 
-import wiiudev.gecko.client.mariokart8.profile.PlayStatistics;
-import wiiudev.gecko.client.mariokart8.profile.Unlocks;
-import wiiudev.gecko.client.connector.Connector;
 import org.apache.commons.io.IOUtils;
 import org.apache.commons.validator.routines.InetAddressValidator;
-import wiiudev.gecko.client.connector.scanner.WiiUDetector;
+import wiiudev.gecko.client.connector.Connector;
 
 import javax.swing.*;
 import javax.swing.event.DocumentEvent;
@@ -14,9 +11,15 @@ import javax.swing.event.HyperlinkEvent;
 import java.awt.*;
 import java.io.IOException;
 import java.io.InputStream;
-import java.net.URISyntaxException;
+import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.List;
+
+import static java.lang.Integer.parseInt;
+import static javax.swing.JOptionPane.*;
+import static wiiudev.gecko.client.connector.scanner.WiiUDetector.getNintendoWiiUIPAddress;
+import static wiiudev.gecko.client.mariokart8.profile.PlayStatistics.*;
+import static wiiudev.gecko.client.mariokart8.profile.Unlocks.*;
 
 public class TrainerGUI extends JFrame
 {
@@ -33,7 +36,7 @@ public class TrainerGUI extends JFrame
 	private JPanel rootPanel;
 	private boolean connected;
 
-	public TrainerGUI() throws IOException
+	public TrainerGUI()
 	{
 		setPlayStatisticsList();
 
@@ -153,85 +156,83 @@ public class TrainerGUI extends JFrame
 									(selectedIndex) + "\"!"));
 					dialog.addComponent(newAmount);
 
-					if (JOptionPane.OK_OPTION == dialog.show())
+					if (dialog.show() == OK_OPTION)
 					{
-						int value = Integer.parseInt(newAmount.getText());
+						int value = parseInt(newAmount.getText());
 
 						if (modificationChooserComboBox.getSelectedIndex() == 0)
 						{
-							PlayStatistics.setCoins(value);
+							setCoins(value);
 						} else if (modificationChooserComboBox.getSelectedIndex() == 1)
 						{
-							PlayStatistics.setJumpBoosts(value);
+							setJumpBoosts(value);
 						} else if (modificationChooserComboBox.getSelectedIndex() == 2)
 						{
-							PlayStatistics.setDrifts(value);
+							setDrifts(value);
 						} else if (modificationChooserComboBox.getSelectedIndex() == 3)
 						{
-							PlayStatistics.setMiniTurbos(value);
+							setMiniTurbos(value);
 						} else if (modificationChooserComboBox.getSelectedIndex() == 4)
 						{
-							PlayStatistics.setSuperMiniTurbos(value);
+							setSuperMiniTurbos(value);
 						} else if (modificationChooserComboBox.getSelectedIndex() == 5)
 						{
-							PlayStatistics.setBalloonsPopped(value);
+							setBalloonsPopped(value);
 						} else if (modificationChooserComboBox.getSelectedIndex() == 6)
 						{
-							PlayStatistics.setOwnBalloonsPopped(value);
+							setOwnBalloonsPopped(value);
 						} else if (modificationChooserComboBox.getSelectedIndex() == 7)
 						{
-							PlayStatistics.setRaceRating(value);
+							setRaceRating(value);
 						} else if (modificationChooserComboBox.getSelectedIndex() == 8)
 						{
-							PlayStatistics.setBattleRating(value);
+							setBattleRating(value);
 						}
 
-						JOptionPane.showMessageDialog(getRootPane(), playStatisticsList.get
+						showMessageDialog(getRootPane(), playStatisticsList.get
 								(selectedIndex) +
 								" successfully" +
 								" set to " +
-								value + "!", "Success", JOptionPane
-								.INFORMATION_MESSAGE);
+								value + "!", "Success", INFORMATION_MESSAGE);
 					}
 				} else if (unlocksRadioButton.isSelected())
 				{
 					if (modificationChooserComboBox.getSelectedIndex() == 0)
 					{
-						Unlocks.unlockAllTracks();
+						unlockAllTracks();
 					} else if (modificationChooserComboBox.getSelectedIndex() == 1)
 					{
-						Unlocks.unlockAllCharacters();
+						unlockAllCharacters();
 					} else if (modificationChooserComboBox.getSelectedIndex() == 2)
 					{
-						Unlocks.unlockAllVehicles();
+						unlockAllVehicles();
 					} else if (modificationChooserComboBox.getSelectedIndex() == 3)
 					{
-						Unlocks.unlockAllTires();
+						unlockAllTires();
 					} else if (modificationChooserComboBox.getSelectedIndex() == 4)
 					{
-						Unlocks.unlockAllGliders();
+						unlockAllGliders();
 					} else if (modificationChooserComboBox.getSelectedIndex() == 5)
 					{
-						Unlocks.unlockAllStickers();
+						unlockAllStickers();
 					} else if (modificationChooserComboBox.getSelectedIndex() == 6)
 					{
-						Unlocks.allCups3Stars();
+						allCups3Stars();
 					} else if (modificationChooserComboBox.getSelectedIndex() == 7)
 					{
-						Unlocks.allAmiiboSuits();
+						allAmiiboSuits();
 					} else if (modificationChooserComboBox.getSelectedIndex() == 8)
 					{
-						Unlocks.unlockAll();
+						unlockAll();
 					}
 
-					JOptionPane.showMessageDialog(getRootPane(), unlocksList.get(modificationChooserComboBox
+					showMessageDialog(getRootPane(), unlocksList.get(modificationChooserComboBox
 							.getSelectedIndex()
-					) + " successfully unlocked!", "Success", JOptionPane.INFORMATION_MESSAGE);
+					) + " successfully unlocked!", "Success", INFORMATION_MESSAGE);
 				}
 			} catch (Exception exception)
 			{
-				JOptionPane.showMessageDialog(getRootPane(), exception.getMessage(), "Error", JOptionPane
-						.ERROR_MESSAGE);
+				showMessageDialog(getRootPane(), exception.getMessage(), "Error", ERROR_MESSAGE);
 			}
 		});
 	}
@@ -271,7 +272,7 @@ public class TrainerGUI extends JFrame
 		connectButton.addActionListener(actionEvent -> new SwingWorker<String, String>()
 		{
 			@Override
-			protected String doInBackground() throws Exception
+			protected String doInBackground()
 			{
 				connectButton.setText("Connecting...");
 				connectButton.setEnabled(false);
@@ -282,7 +283,7 @@ public class TrainerGUI extends JFrame
 
 					if (autoDetectCheckBox.isSelected())
 					{
-						ipAddress = WiiUDetector.getNintendoWiiUIPAddress();
+						ipAddress = getNintendoWiiUIPAddress();
 					} else
 					{
 						ipAddress = wiiUIPAddressField.getText();
@@ -296,8 +297,8 @@ public class TrainerGUI extends JFrame
 					connected = true;
 				} catch (Exception exception)
 				{
-					JOptionPane.showMessageDialog(null, exception.getMessage(), "Connection Failed", JOptionPane
-							.ERROR_MESSAGE);
+					showMessageDialog(null, exception.getMessage(),
+							"Connection Failed", ERROR_MESSAGE);
 
 					connectButton.setEnabled(true);
 					connectButton.setText(connectButtonText);
@@ -308,20 +309,19 @@ public class TrainerGUI extends JFrame
 		}.execute());
 	}
 
-	private String resourceToString(String filePath) throws IOException, URISyntaxException
+	private static String resourceToString() throws IOException
 	{
-		InputStream inputStream = TrainerGUI.class.getResourceAsStream(filePath);
-
-		return IOUtils.toString(inputStream);
+		InputStream inputStream = TrainerGUI.class.getResourceAsStream("/About.html");
+		return IOUtils.toString(inputStream, StandardCharsets.UTF_8);
 	}
 
 	private void addAboutButtonListener()
 	{
-		aboutButton.addActionListener(e ->
+		aboutButton.addActionListener(actionEvent ->
 		{
 			try
 			{
-				String html = resourceToString("/About.html");
+				String html = resourceToString();
 
 				JEditorPane aboutPane = new JEditorPane();
 				aboutPane.setContentType("text/html");
@@ -346,7 +346,7 @@ public class TrainerGUI extends JFrame
 					}
 				});
 
-				JOptionPane.showMessageDialog(getRootPane(), aboutPane, "About", JOptionPane.INFORMATION_MESSAGE);
+				showMessageDialog(getRootPane(), aboutPane, "About", INFORMATION_MESSAGE);
 			} catch (Exception exception)
 			{
 				exception.printStackTrace();
@@ -371,7 +371,7 @@ public class TrainerGUI extends JFrame
 		}));
 	}
 
-	private void setupFrameProperties() throws IOException
+	private void setupFrameProperties()
 	{
 		setContentPane(rootPanel);
 		setTitle("Mario Kart 8 Trainer");
